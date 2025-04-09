@@ -1,0 +1,25 @@
+{
+  "welcomeFile": "homepage.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/user-api/currentUser$",
+      "target": "/currentUser",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "^/route-me-to/(.*)$",
+      "target": "$1",
+      "destination": "destination_attriapp",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/(.*)$",
+      "localDir": "resources",
+      "authenticationType": "xsuaa",
+      "scope": "$XSAPPNAME.scopeforview",
+      "csrfProtection": false
+    }
+  ]
+}

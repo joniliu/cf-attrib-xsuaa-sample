@@ -1,0 +1,71 @@
+{
+  "xsappname": "attrixsappname",
+  "tenant-mode": "dedicated",
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://*.authentication.us10.hana.ondemand.com/login/**",
+      "https://*.cfapps.sap.hana.ondemand.com/login/**",
+      "https://**.cfapps.us10-001.hana.ondemand.com/**"
+    ]
+  },
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.scopeforview",
+      "description": "Scope required for viewing employee list."
+    },
+    {
+      "name": "$XSAPPNAME.scopeforcreate",
+      "description": "Scope required for creating new employee"
+    },
+    {
+      "name": "$XSAPPNAME.scopeformanage",
+      "description": "Scope required for managing existing employee"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "CostCenter",
+      "description": "This attribute contains the Cost Center of assigned user.",
+      "valueType": "string"
+    },
+    {
+      "name": "SpecialTraining",
+      "description": "Contains info if user received special training for special employees",
+      "valueType": "string",
+      "valueRequired": "false"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "UserRoleTemplate",
+      "default-role-name": "UserRole",
+      "description": "Role for end users, allows to view list of employees",
+      "scope-references": ["$XSAPPNAME.scopeforview"]
+    },
+    {
+      "name": "AssistantRoleTemplate",
+      "description": "Role for assistants, allows to view and create employees.",
+      "scope-references": [
+        "$XSAPPNAME.scopeforview",
+        "$XSAPPNAME.scopeforcreate"
+      ],
+      "attribute-references": [{ "name": "SpecialTraining" }]
+    },
+    {
+      "name": "ManagerRoleTemplate",
+      "description": "Role for managers, allows to view, create and manage employees.",
+      "scope-references": [
+        "$XSAPPNAME.scopeforview",
+        "$XSAPPNAME.scopeforcreate",
+        "$XSAPPNAME.scopeformanage"
+      ],
+      "attribute-references": [{ "name": "CostCenter" }]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "UsersRC",
+      "role-template-references": ["$XSAPPNAME.UserRoleTemplate"]
+    }
+  ]
+}

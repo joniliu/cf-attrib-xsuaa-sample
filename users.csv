@@ -1,0 +1,6 @@
+emails[0].value,name.familyName,name.givenName,userName,userType,active,urn:ietf:params:scim:schemas:extension:sap:2.0:User:mailVerified,urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes[0].name,urn:sap:cloud:scim:schemas:extension:custom:2.0:User:attributes[0].value,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter
+assius@from.us,Us,Assi,AssiUs,Employee,TRUE,true,customAttribute1,false,CoCeAs
+asside@from.de,De,Assi,AssiDe,Employee,TRUE,true,customAttribute1,true,CoCeAs
+manager@from.de,Ger,Mana,Manager,Employee,TRUE,true,customAttribute1,true,CoCeMa
+user@from.es,Er,Us,User,Employee,TRUE,true,customAttribute1,false,none
+nothing@from.fr,Ng,Nothi,Nothing,Employee,TRUE,true,customAttribute1,false,none
