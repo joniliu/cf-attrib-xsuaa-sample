@@ -39,7 +39,7 @@ cd cf-attrib-xsuaa-sample
 2. Create an instance of XSUAA
 
 ```bash
-cf cf cs xsuaa application attriXsuaa -c xs-security.json
+cf cs xsuaa application attriXsuaa -c xs-security.json
 ```
 
 3. Deploy to Cloud Foundry
